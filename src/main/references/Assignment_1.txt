@@ -1,0 +1,862 @@
+/**
+ *
+ * @author user
+ */
+import java.util.Scanner;
+
+// interface
+interface VehicleOperations {
+    // Common method signatures that all vehicles must implement
+    void startVehicle();
+    void stopVehicle();
+    double calculateEfficiency();
+    String getVehicleStatus();
+    String engineType();
+}
+
+// base class
+class SportCar implements VehicleOperations {
+    // Attributes
+    private String brand;
+    private String model;
+    private int year;
+    private int price;
+    private double engineCapacity;
+    private String fuelType;
+    private double mileage;
+    Wheels Tyre = new Wheels();
+    Garage Garage = new Garage();
+    Driver Driver = new Driver();
+
+    // constructors
+    public SportCar() {
+        this.brand = "Unknown";
+        this.model = "Unknown";
+        this.year = 0;
+        this.price = 0;
+        this.engineCapacity = 0.0;
+        this.fuelType = "Unknown";
+        this.mileage = 0.0;
+    }
+
+    public SportCar(String brand, String model, int year, int price,
+                    double engineCapacity, String fuelType, double mileage) {
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+        this.price = price;
+        this.engineCapacity = engineCapacity;
+        this.fuelType = fuelType;
+        this.mileage = mileage;
+    }
+
+    // Getter and Setter methods
+    public String getBrand() { return brand; }
+    public void setBrand(String brand) { this.brand = brand; }
+
+    public String getModel() { return model; }
+    public void setModel(String model) { this.model = model; }
+
+    public int getYear() { return year; }
+    public void setYear(int year) { this.year = year; }
+
+    public int getPrice() { return price; }
+    public void setPrice(int price) { this.price = price; }
+
+    public double getEngineCapacity() { return engineCapacity; }
+    public void setEngineCapacity(double engineCapacity) { this.engineCapacity = engineCapacity; }
+
+    public String getFuelType() { return fuelType; }
+    public void setFuelType(String fuelType) { this.fuelType = fuelType; }
+
+    public double getMileage() { return mileage; }
+    public void setMileage(double mileage) { this.mileage = mileage; }
+
+    // Polymorphism interface implementation
+    @Override
+    public void startVehicle() {
+        System.out.println("Sport car engine starting... Vroom Vroom!");
+    }
+    
+    @Override
+    public void stopVehicle() {
+        System.out.println("Sport car engine shutting down...");
+    }
+    
+    @Override
+    public double calculateEfficiency() {
+        return mileage; // km per liter for regular cars
+    }
+    
+    @Override
+    public String getVehicleStatus() {
+        return "Regular sport car - Ready for performance driving";
+    }
+
+    @Override
+    public String engineType(){
+        return "Gas";
+    }
+
+    // Common methods that will be overridden in derived classes
+    public void displayCarInfo() {
+        System.out.println("\n=== CAR INFORMATION ===");
+        System.out.println("Brand: " + brand);
+        System.out.println("Model: " + model);
+        System.out.println("Year: " + year);
+        System.out.println("Price: RM" + price);
+        System.out.println("Engine: " + engineCapacity + "L");
+        System.out.println("Fuel Type: " + fuelType);
+        System.out.println("Mileage: " + mileage + " km/L");
+    }
+
+    public double calculateMaintenanceCost() {
+        return price * 0.05; // 5% of car price per year
+    }
+
+    public String getCarType() {
+        return "Regular Sport Car";
+    }
+
+    public void performService() {
+        System.out.println("Performing regular maintenance: Oil change, filter replacement, brake check");
+    }
+    
+    public void startEngine() {
+        System.out.println("Engine starting... Vroom Vroom!");
+    }
+    
+    public double calculateFuelCost(double distance, double fuelPrice) {
+        double fuelNeeded = distance / mileage;
+        return fuelNeeded * fuelPrice;
+    }
+
+    public int calculateCarAge(int currentYear) {
+        return currentYear - year;
+    }
+
+    public boolean isFuelEfficient(float fuelUsed, float distanceTravelled) {
+        float fuelPer100 = (fuelUsed / distanceTravelled) * 100;
+        return fuelPer100 < 7;
+    }
+
+    public void resellValue() {
+        System.out.println("\nResell Value Estimation");
+        System.out.println("This is just an estimation");
+
+        if (year == 1) {
+            float depreciateValue = this.price * 15 / 100;
+            float carValue = this.price - depreciateValue;
+            System.out.println("Based on data, your car value is: RM " + carValue);
+        } else if (year == 2) {
+            float depreciateValue = this.price * 20 / 100;
+            float carValue = this.price - depreciateValue;
+            System.out.println("Based on data, your car value is: RM " + carValue);
+        } else if (year == 3) {
+            float depreciateValue = this.price * 30 / 100;
+            float carValue = this.price - depreciateValue;
+            System.out.println("Based on data, your car value is: RM " + carValue);
+        } else if (year == 4) {
+            float depreciateValue = this.price * 40 / 100;
+            float carValue = this.price - depreciateValue;
+            System.out.println("Based on data, your car value is: RM " + carValue);
+        } else if (year >= 5) {
+            float depreciateValue = this.price * 50 / 100;
+            float carValue = this.price - depreciateValue;
+            System.out.println("Based on data, your car value is: RM " + carValue);
+        } else {
+            System.out.println("Data not completed yet");
+        }
+    }
+}
+
+// derived class 1 Electric Engine
+class ElectricEngine extends SportCar {
+    private int batteryCapacity;
+    private int chargingTime;
+    private int range;
+    private String motorType;
+    
+    public ElectricEngine() {
+        super();
+        this.batteryCapacity = 0;
+        this.chargingTime = 0;
+        this.range = 0;
+        this.motorType = "Unknown";
+    }
+    
+    public ElectricEngine(String brand, String model, int year, int price,
+                         double engineCapacity, String fuelType, double mileage,
+                         int batteryCapacity, int chargingTime, int range, String motorType) {
+        super(brand, model, year, price, engineCapacity, fuelType, mileage);
+        this.batteryCapacity = batteryCapacity;
+        this.chargingTime = chargingTime;
+        this.range = range;
+        this.motorType = motorType;
+    }
+    
+    // Polymorphism interface method but different from base class
+    @Override
+    public void startVehicle() {
+        System.out.println("Electric motor activating... Silent startup complete!");
+    }
+    
+    @Override
+    public void stopVehicle() {
+        System.out.println("Electric motor deactivating... Regenerative braking engaged!");
+    }
+    
+    @Override
+    public double calculateEfficiency() {
+        return (double) range / batteryCapacity; // km per kWh for electric cars
+    }
+    
+    @Override
+    public String getVehicleStatus() {
+        return "Electric vehicle - Zero emissions, " + range + "km range available";
+    }
+    
+    @Override
+    public String engineType(){
+        return "Electric";
+    }
+
+    // OVERRIDDEN BASE CLASS METHODS
+    @Override
+    public void displayCarInfo() {
+        System.out.println("\n=== ELECTRIC ENGINE CAR ===");
+        System.out.println("Brand: " + getBrand());
+        System.out.println("Model: " + getModel());
+        System.out.println("Year: " + getYear());
+        System.out.println("Price: RM" + getPrice());
+        System.out.println("Motor Type: " + motorType);
+        System.out.println("Battery: " + batteryCapacity + " kWh");
+        System.out.println("Charging Time: " + chargingTime + " hours");
+        System.out.println("Range: " + range + " km per charge");
+        System.out.println("Fuel Type: " + getFuelType());
+    }
+
+    @Override
+    public double calculateMaintenanceCost() {
+        double baseCost = getPrice() * 0.02;
+        double batteryMaintenance = batteryCapacity * 10;
+        return baseCost + batteryMaintenance;
+    }
+
+    @Override
+    public String getCarType() {
+        return "Electric Engine Sport Car";
+    }
+
+    @Override
+    public void performService() {
+        System.out.println("Performing electric car maintenance:");
+        System.out.println("- Battery health check and calibration");
+        System.out.println("- Electric motor inspection");
+        System.out.println("- Software updates and diagnostics");
+        System.out.println("- Charging system maintenance");
+    }
+    
+    @Override
+    public void startEngine() {
+        System.out.println("Electric motor activating... Silent whirring sound!");
+    }
+    
+    @Override
+    public double calculateFuelCost(double distance, double electricityRate) {
+        double energyNeeded = (distance / range) * batteryCapacity;
+        return energyNeeded * electricityRate;
+    }
+    
+    // ELECTRIC-SPECIFIC METHODS
+    public double calculateChargingCost(double electricityRate) {
+        return batteryCapacity * electricityRate;
+    }
+    
+    public boolean canReachDestination(int distance) {
+        return distance <= range;
+    }
+    
+    public double getEfficiency() {
+        return (double) range / batteryCapacity;
+    }
+    
+    // GETTER AND SETTER METHODS
+    public int getBatteryCapacity() { return batteryCapacity; }
+    public void setBatteryCapacity(int batteryCapacity) { this.batteryCapacity = batteryCapacity; }
+    
+    public int getChargingTime() { return chargingTime; }
+    public void setChargingTime(int chargingTime) { this.chargingTime = chargingTime; }
+    
+    public int getRange() { return range; }
+    public void setRange(int range) { this.range = range; }
+    
+    public String getMotorType() { return motorType; }
+    public void setMotorType(String motorType) { this.motorType = motorType; }
+}
+
+// derived class 2 HybridEngine
+class HybridEngine extends SportCar {
+    private int batteryCapacity;
+    private int electricRange;
+    private String hybridType;
+    private boolean hasRegenerativeBraking;
+    private String powerMode;
+    
+    public HybridEngine() {
+        super();
+        this.batteryCapacity = 0;
+        this.electricRange = 0;
+        this.hybridType = "Unknown";
+        this.hasRegenerativeBraking = false;
+        this.powerMode = "Hybrid";
+    }
+    
+    public HybridEngine(String brand, String model, int year, int price,
+                       double engineCapacity, String fuelType, double mileage,
+                       int batteryCapacity, int electricRange, String hybridType, 
+                       boolean hasRegenerativeBraking, String powerMode) {
+        super(brand, model, year, price, engineCapacity, fuelType, mileage);
+        this.batteryCapacity = batteryCapacity;
+        this.electricRange = electricRange;
+        this.hybridType = hybridType;
+        this.hasRegenerativeBraking = hasRegenerativeBraking;
+        this.powerMode = powerMode;
+    }
+    
+    // INTERFACE METHOD IMPLEMENTATIONS (DIFFERENT FROM OTHERS)
+    @Override
+    public void startVehicle() {
+        System.out.println("Hybrid system initializing...");
+        System.out.println("Electric motor ready... Engine starting smoothly in hybrid mode!");
+    }
+    
+    @Override
+    public void stopVehicle() {
+        System.out.println("Hybrid system shutting down... Storing energy for next start!");
+    }
+    
+    @Override
+    public double calculateEfficiency() {
+        // Combined efficiency calculation for hybrid
+        double electricEfficiency = (double) electricRange / batteryCapacity;
+        double fuelEfficiency = getMileage();
+        return (electricEfficiency + fuelEfficiency) / 2; // Average efficiency
+    }
+    
+    @Override
+    public String getVehicleStatus() {
+        return "Hybrid vehicle - " + powerMode + " mode active, " + 
+               electricRange + "km electric range available";
+    }
+
+    @Override
+    public String engineType(){
+        return "Hybrid";
+    }
+    
+    @Override
+    public void displayCarInfo() {
+        System.out.println("\n=== HYBRID ENGINE CAR ===");
+        System.out.println("Brand: " + getBrand());
+        System.out.println("Model: " + getModel());
+        System.out.println("Year: " + getYear());
+        System.out.println("Price: RM" + getPrice());
+        System.out.println("Engine: " + getEngineCapacity() + "L + Electric Motor");
+        System.out.println("Hybrid Type: " + hybridType);
+        System.out.println("Battery: " + batteryCapacity + " kWh");
+        System.out.println("Electric Range: " + electricRange + " km");
+        System.out.println("Fuel Type: " + getFuelType());
+        System.out.println("Combined Mileage: " + getMileage() + " km/L");
+        System.out.println("Regenerative Braking: " + (hasRegenerativeBraking ? "Yes" : "No"));
+        System.out.println("Current Power Mode: " + powerMode);
+    }
+
+    @Override
+    public double calculateMaintenanceCost() {
+        double engineCost = getPrice() * 0.04;
+        double electricCost = batteryCapacity * 8;
+        double hybridSystemCost = 200;
+        return engineCost + electricCost + hybridSystemCost;
+    }
+
+    @Override
+    public String getCarType() {
+        return "Hybrid Engine Sport Car";
+    }
+
+    @Override
+    public void performService() {
+        System.out.println("Performing hybrid car maintenance:");
+        System.out.println("- Engine oil and filter change");
+        System.out.println("- Battery system health check");
+        System.out.println("- Hybrid system diagnostics");
+        System.out.println("- Regenerative braking system: " + (hasRegenerativeBraking ? "Check" : "N/A"));
+        System.out.println("- Power control unit inspection");
+        System.out.println("- Dual cooling system maintenance");
+    }
+    
+    @Override
+    public void startEngine() {
+        System.out.println("Hybrid system initializing... Electric motor ready!");
+    }
+    
+    @Override
+    public double calculateFuelCost(double distance, double fuelPrice) {
+        // Hybrid uses both electric and fuel - more complex calculation
+        double electricPortion = Math.min(distance, electricRange);
+        double fuelPortion = distance - electricPortion;
+        
+        double electricCost = (electricPortion / electricRange) * batteryCapacity * 0.3; // Assume RM0.30/kWh
+        double fuelCost = (fuelPortion / getMileage()) * fuelPrice;
+        
+        return electricCost + fuelCost;
+    }
+    
+    // Hybrid-specific methods
+    public void changePowerMode(String newMode) {
+        this.powerMode = newMode;
+        System.out.println("Power mode changed to: " + newMode);
+    }
+    
+    public double calculateTotalRange() {
+        return electricRange + (getMileage() * 50); // Assume 50L fuel tank
+    }
+    
+    public String getEnergyUsage(double distance) {
+        if (distance <= electricRange) {
+            return "Fully electric mode - zero emissions";
+        } else {
+            double electricPercent = (electricRange / distance) * 100;
+            return String.format("Hybrid mode - %.1f%% electric, %.1f%% fuel", electricPercent, 100-electricPercent);
+        }
+    }
+    
+    public void demonstrateRegenerativeBraking() {
+        if (hasRegenerativeBraking) {
+            System.out.println("Regenerative braking active... Charging battery while slowing down!");
+        } else {
+            System.out.println("Regenerative braking not available");
+        }
+    }
+    
+    // Getters and setters
+    public int getBatteryCapacity() { return batteryCapacity; }
+    public void setBatteryCapacity(int batteryCapacity) { this.batteryCapacity = batteryCapacity; }
+    
+    public int getElectricRange() { return electricRange; }
+    public void setElectricRange(int electricRange) { this.electricRange = electricRange; }
+    
+    public String getHybridType() { return hybridType; }
+    public void setHybridType(String hybridType) { this.hybridType = hybridType; }
+    
+    public boolean hasRegenerativeBraking() { return hasRegenerativeBraking; }
+    public void setRegenerativeBraking(boolean hasRegenerativeBraking) { this.hasRegenerativeBraking = hasRegenerativeBraking; }
+    
+    public String getPowerMode() { return powerMode; }
+    public void setPowerMode(String powerMode) { this.powerMode = powerMode; }
+}
+
+class Wheels{
+    private String frontTyreType;
+    private String backTyreType;
+
+    public Wheels(){
+        this.frontTyreType = "Unknown";
+        this.backTyreType = "Unknown";
+    }
+
+    public Wheels(String frontType, String backType){
+        this.frontTyreType = frontType;
+        this.backTyreType = backType;
+    }
+
+    public String getFrontWheel() {return frontTyreType; }
+    public void setFrontWheel(String frontTyre) { this.frontTyreType = frontTyre; }
+    
+    public String getRearWheel() {return backTyreType; }
+    public void setRearWheel(String backTyre) { this.backTyreType = backTyre; }
+}
+
+class Garage{
+    private int garageIdNum;
+    private String garageName;
+
+    public Garage(){
+        this.garageIdNum = 0;
+        this.garageName = "No Entry";
+    }
+
+    public Garage(int garageNum, String garName){
+        this.garageIdNum = garageNum ;
+        this.garageName = garName;
+    }
+
+    public int getGarageNum() { return garageIdNum; }
+    public void setGarageNum(int garageNum) { this.garageIdNum = garageNum; }
+    
+    public String getGarageName() { return garageName; }
+    public void setGarageName(String garName) { this.garageName = garName; }
+
+}
+
+class Driver{
+    private int driverID;
+    private String driverName;
+
+    public Driver(){
+        this.driverID = 0;
+        this.driverName = "No Entry";
+    }
+
+    public Driver(int driID, String driName){
+        this.driverID = driID;
+        this.driverName = driName;
+    }
+
+    public int getDriverNum() { return driverID; }
+    public void setDriverNum(int DriId) { this.driverID = DriId; }
+    
+    public String getDriverName() { return driverName; }
+    public void setDriverName(String DriName) { this.driverName = DriName; }
+}
+
+public class Assignment_1 {
+    public static void main(String[] args) {
+        SportCar currentCar = new SportCar();
+        Scanner scanner = new Scanner(System.in);
+        
+        while (true) { 
+            System.out.println("\n=== RACING SYSTEM ===");
+            System.out.println("1. Racing Management");
+            System.out.println("2. Demonstrate Polymorphism with Interface");
+            System.out.println("3. Exit The System");
+            System.out.print("Choose option (1-3): ");
+
+            int optionNum = scanner.nextInt();
+            scanner.nextLine();
+
+            mainloop:
+            switch (optionNum) {
+                case 1: {
+
+                    System.out.println("Welcome back Manager!!!");
+
+                    while (true) { 
+                        System.out.printf("----------------------------------------------%n");
+                        System.out.printf("        Race Management (Simple View)         %n");
+                        System.out.printf("----------------------------------------------%n");
+
+                        System.out.printf("| %-20s | %-15s | %-8s | %-15s |%n", "CAR", "TYRE", "GARAGE", "DRIVER");
+                        System.out.printf("| %-20s | %-15s | %-8s | %-15s |%n", "Brand: " + currentCar.getBrand(), "F.Type: " + currentCar.Tyre.getFrontWheel(), "Num: " + currentCar.Garage.getGarageNum(), "Name: " + currentCar.Driver.getDriverName());
+                        System.out.printf("| %-20s | %-15s | %-8s | %-15s |%n", "Engine Type: " + currentCar.engineType(), "R.Type: " + currentCar.Tyre.getRearWheel(), "", "ID: " + currentCar.Driver.getDriverNum());
+                        System.out.printf("| %-20s | %-15s | %-8s | %-15s |%n", "Model: " + currentCar.getModel(), "", "", "");
+                        System.out.println("");
+                        System.err.println("Please choose a detail to insert.");
+                        System.out.printf("%-40s  %-40s %n", "1. Insert Car Detail.", "2. Insert Tyre Detail.");
+                        System.out.printf("%-40s  %-40s %n", "3. Insert Garage Detail.","4. Insert Driver Detail.");
+                        System.out.println("5. More Option");
+                        System.out.println("6. Exit.");
+                        System.out.print("Choose option (1-6): ");
+
+                        optionNum = scanner.nextInt();
+                        scanner.nextLine();
+
+                        OUTER:
+                        switch (optionNum) {
+                            case 1:
+                                System.out.println("");
+                                System.out.println("Please choose based on your cars' engine type");   
+                                System.out.println("1. Oil");
+                                System.out.println("2. Electric");
+                                System.out.println("3. Hybrid");
+                                System.out.print("Choose option (1-3): ");
+                                
+                                optionNum = scanner.nextInt();
+                                scanner.nextLine();
+                                switch (optionNum) {
+                                    case 1:
+                                        {
+                                            System.out.print("Enter car brand: ");
+                                            String inBrand = scanner.nextLine();
+                                            System.out.print("Enter car model: ");
+                                            String inModel = scanner.nextLine();
+                                            System.out.print("Enter car year: ");
+                                            int inYear = scanner.nextInt();
+                                            scanner.nextLine();
+                                            System.out.print("Enter car price: RM");
+                                            int inPrice = scanner.nextInt();
+                                            scanner.nextLine();
+                                            System.out.print("Enter engine capacity: ");
+                                            double inEngineCap = scanner.nextDouble();
+                                            scanner.nextLine();
+                                            System.out.print("Enter fuel type: ");
+                                            String infuel = scanner.nextLine();
+                                            System.out.print("Enter car mileage: ");
+                                            double inMileage = scanner.nextDouble();
+                                            scanner.nextLine();
+                                            currentCar = new SportCar(inBrand, inModel, inYear, inPrice, inEngineCap, infuel, inMileage);
+                                            System.out.println("Regular car data saved!");
+                                            break OUTER;
+                                        }
+                                    case 2:
+                                        {
+                                            System.out.print("Enter car brand: ");
+                                            String inBrand = scanner.nextLine();
+                                            System.out.print("Enter car model: ");
+                                            String inModel = scanner.nextLine();
+                                            System.out.print("Enter car year: ");
+                                            int inYear = scanner.nextInt();
+                                            scanner.nextLine();
+                                            System.out.print("Enter car price: RM");
+                                            int inPrice = scanner.nextInt();
+                                            scanner.nextLine();
+                                            System.out.print("Enter battery capacity (kWh): ");
+                                            int batteryCap = scanner.nextInt();
+                                            scanner.nextLine();
+                                            System.out.print("Enter charging time (hours): ");
+                                            int chargeTime = scanner.nextInt();
+                                            scanner.nextLine();
+                                            System.out.print("Enter range (km): ");
+                                            int range = scanner.nextInt();
+                                            scanner.nextLine();
+                                            System.out.print("Enter motor type: ");
+                                            String motorType = scanner.nextLine();
+                                            currentCar = new ElectricEngine(inBrand, inModel, inYear, inPrice,
+                                                    0.0, "Electric", 0.0,
+                                                    batteryCap, chargeTime, range, motorType);
+                                            System.out.println("Electric engine car data saved!");
+                                            break OUTER;
+                                        }
+                                    case 3:
+                                        {
+                                            System.out.print("Enter car brand: ");
+                                            String inBrand = scanner.nextLine();
+                                            System.out.print("Enter car model: ");
+                                            String inModel = scanner.nextLine();
+                                            System.out.print("Enter car year: ");
+                                            int inYear = scanner.nextInt();
+                                            scanner.nextLine();
+                                            System.out.print("Enter car price: RM");
+                                            int inPrice = scanner.nextInt();
+                                            scanner.nextLine();
+                                            System.out.print("Enter engine capacity: ");
+                                            double inEngineCap = scanner.nextDouble();
+                                            scanner.nextLine();
+                                            System.out.print("Enter fuel type: ");
+                                            String infuel = scanner.nextLine();
+                                            System.out.print("Enter combined mileage: ");
+                                            double inMileage = scanner.nextDouble();
+                                            scanner.nextLine();
+                                            System.out.print("Enter battery capacity (kWh): ");
+                                            int batteryCap = scanner.nextInt();
+                                            scanner.nextLine();
+                                            System.out.print("Enter electric range (km): ");
+                                            int electricRange = scanner.nextInt();
+                                            scanner.nextLine();
+                                            System.out.print("Enter hybrid type (Parallel/Series/Plug-in): ");
+                                            String hybridType = scanner.nextLine();
+                                            System.out.print("Has regenerative braking? (true/false): ");
+                                            boolean regenBraking = scanner.nextBoolean();
+                                            scanner.nextLine();
+                                            System.out.print("Enter default power mode (EV/Hybrid/Sport): ");
+                                            String powerMode = scanner.nextLine();
+                                            currentCar = new HybridEngine(inBrand, inModel, inYear, inPrice, inEngineCap, infuel, inMileage, batteryCap, electricRange, hybridType,regenBraking, powerMode);
+                                            System.out.println("Hybrid engine car data saved!");
+                                            
+                                            break OUTER;
+                                        }
+                                    default:
+                                        System.out.println("Invalid option! Please choose 1-3.");
+                                        break;
+                                }
+
+                                break;
+                            case 2:
+                                System.out.println("");
+                                System.out.print("Enter the front tyre type: ");
+                                String inFrontType = scanner.nextLine();
+                                System.out.print("Enter the back tyre type: ");
+                                String inBackType = scanner.nextLine();
+
+                                currentCar.Tyre.setFrontWheel(inFrontType);
+                                currentCar.Tyre.setRearWheel(inBackType);
+                                System.out.println("Wheel data saved!");
+
+                                break;
+                            case 3:
+                                System.out.println("");
+                                System.out.print("Enter the Cars' Garage Numnber: ");
+                                int inGarageNum = scanner.nextInt();
+                                System.out.print("Enter the Cars' Garage Name: ");
+                                String inGarageName = scanner.nextLine();
+
+                                currentCar.Garage.setGarageNum(inGarageNum);
+                                currentCar.Garage.setGarageName(inGarageName);
+                                System.out.println("Garage data saved!");
+
+                                break;
+                            case 4:
+                                System.out.println("");
+                                System.out.print("Enter the Cars' Driver Name: ");
+                                String inDriverName = scanner.nextLine();
+                                System.out.print("Enter the Cars' Driver Numnber: ");
+                                int inDriverNum = scanner.nextInt();
+
+                                currentCar.Driver.setDriverName(inDriverName);
+                                currentCar.Driver.setDriverNum(inDriverNum);
+                                System.out.println("Driver data saved!");
+                                
+                                break;
+                            case 5:
+                                System.out.println("");
+
+                                System.out.println("More Option");
+                                System.out.printf("%-40s  %-40s %n","1. Display Current Car Data", "2. Calculate Maintenance Cost");
+                                System.out.printf("%-40s  %-40s %n","3. Perform Service", "4. Vehicle Operations Demo (Interface Methods)");
+                                System.out.printf("%-40s  %-40s %n","5. Calculate Travel Cost","6. Show Car Type & Special Features");
+
+                                System.out.print("Choose option (1-6): ");
+                                optionNum = scanner.nextInt();
+                                scanner.nextLine();
+
+                                switch (optionNum) {
+                                    case 1: {
+                                        currentCar.displayCarInfo();
+                                        break;
+                                    }
+                                    case 2: {
+                                        double maintenanceCost = currentCar.calculateMaintenanceCost();
+                                        System.out.println("Annual maintenance cost: RM" + maintenanceCost);
+                                        break;
+                                    }
+                                    case 3: {
+                                        currentCar.performService();
+                                        break;
+                                    }
+                                    case 4: {
+                                        System.out.println("\n=== VEHICLE OPERATIONS (INTERFACE METHODS) ===");
+                                        currentCar.startVehicle();
+                                        currentCar.stopVehicle();
+                                        System.out.println("Vehicle Efficiency: " + currentCar.calculateEfficiency() + 
+                                                        (currentCar instanceof ElectricEngine ? " km/kWh" : " km/L"));
+                                        System.out.println("Status: " + currentCar.getVehicleStatus());
+                                        break;
+                                    }
+                                    case 5: {
+                                        System.out.print("Enter distance to travel (km): ");
+                                        double distance = scanner.nextDouble();
+                                        scanner.nextLine();
+                                        
+                                        if (currentCar instanceof ElectricEngine) {
+                                            System.out.print("Enter electricity rate (RM per kWh): ");
+                                            double rate = scanner.nextDouble();
+                                            scanner.nextLine();
+                                            double cost = currentCar.calculateFuelCost(distance, rate);
+                                            System.out.println("Electricity cost for " + distance + "km: RM" + cost);
+                                        } else if (currentCar instanceof HybridEngine hybridEngine) {
+                                            System.out.print("Enter fuel price (RM per liter): ");
+                                            double rate = scanner.nextDouble();
+                                            scanner.nextLine();
+                                            double cost = currentCar.calculateFuelCost(distance, rate);
+                                            System.out.println("Hybrid fuel cost for " + distance + "km: RM" + cost);
+                                            
+                                            HybridEngine hybridCar = hybridEngine;
+                                            System.out.println("Energy usage: " + hybridCar.getEnergyUsage(distance));
+                                        } else {
+                                            System.out.print("Enter fuel price (RM per liter): ");
+                                            double rate = scanner.nextDouble();
+                                            scanner.nextLine();
+                                            double cost = currentCar.calculateFuelCost(distance, rate);
+                                            System.out.println("Fuel cost for " + distance + "km: RM" + cost);
+                                        }
+                                        break;
+                                    }
+                                    case 6: {
+                                        System.out.println("Car type: " + currentCar.getCarType());
+                                        
+                                        if (currentCar instanceof ElectricEngine electricCar) {
+                                            System.out.println("Efficiency: " + electricCar.getEfficiency() + " km/kWh");
+                                            System.out.println("Can reach KL to Penang (350km): " + electricCar.canReachDestination(350));
+                                        } else if (currentCar instanceof HybridEngine hybridCar) {
+                                            System.out.println("Total range: " + hybridCar.calculateTotalRange() + " km");
+                                            System.out.println("Current power mode: " + hybridCar.getPowerMode());
+                                            hybridCar.demonstrateRegenerativeBraking();
+                                        }
+                                        break;
+                                    }
+                                    default:
+                                        System.out.println("Invalid option! Please choose 1-6.");
+                                        break;
+                                }
+
+                                break;
+                            case 6:
+                                break mainloop;
+                            default:
+                                System.out.println("Invalid option! Please choose 1-6.");
+                                break;
+                        }
+
+                        System.out.print("\nPress Enter to continue...");
+                        scanner.nextLine();
+                    }
+                }
+                
+                case 2: {
+                    System.out.println("\n=== POLYMORPHISM WITH INTERFACE DEMONSTRATION ===");
+                    
+                    // Create array of VehicleOperations interface type
+                    VehicleOperations[] vehicles = new VehicleOperations[3];
+                    
+                    vehicles[0] = new SportCar("Toyota", "AE86", 1983, 38000, 1.6, "Petrol", 15.5);
+                    vehicles[1] = new ElectricEngine("Tesla", "Model S", 2023, 150000, 0.0, "Electric", 0.0, 100, 2, 637, "Dual Motor");
+                    vehicles[2] = new HybridEngine("Toyota", "Prius", 2023, 110000, 1.8, "Petrol", 25.0, 5, 50, "Parallel", true, "Hybrid");
+                    
+                    System.out.println("=== POLYMORPHISM IN ACTION ===");
+                    System.out.println("Same method calls, different behaviors:\n");
+                    
+                    for (int i = 0; i < vehicles.length; i++) {
+                        System.out.println("Vehicle " + (i + 1) + ":");
+                        vehicles[i].startVehicle();      // Different implementation for each
+                        vehicles[i].stopVehicle();       // Different implementation for each
+                        System.out.println("Efficiency: " + vehicles[i].calculateEfficiency()); // Different calculation
+                        System.out.println("Status: " + vehicles[i].getVehicleStatus()); // Different status message
+                        System.out.println("---");
+                    }
+                    
+                    // Demonstrate that we can use the interface type for method parameters
+                    System.out.println("\n=== USING INTERFACE AS METHOD PARAMETER ===");
+                    demonstratePolymorphism(vehicles[0]);
+                    demonstratePolymorphism(vehicles[1]);
+                    demonstratePolymorphism(vehicles[2]);
+                    break;
+                }
+                
+                case 3: {
+                    System.out.println("Thank you for using the system!");
+                    scanner.close();
+                    System.exit(0);
+                    break;
+                }
+                
+                default: {
+                    System.out.println("Invalid option! Please choose 1-3.");
+                    break;
+                }
+            }
+            
+            System.out.print("\nPress Enter to continue...");
+            scanner.nextLine();
+        }
+    }
+    
+    // Method that accepts interface type - demonstrates polymorphism
+    public static void demonstratePolymorphism(VehicleOperations vehicle) {
+        System.out.println("\nProcessing vehicle through interface:");
+        System.out.println("Vehicle type: " + vehicle.getClass().getSimpleName());
+        vehicle.startVehicle();
+        System.out.println("Efficiency: " + vehicle.calculateEfficiency());
+        System.out.println("Status: " + vehicle.getVehicleStatus());
+    }
+}

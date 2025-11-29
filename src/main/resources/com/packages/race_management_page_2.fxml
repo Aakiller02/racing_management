@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
+
+<VBox prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.packages.racingMenu">
+  <children>
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="718.0" prefWidth="1399.0">
+      <children>
+            <HBox alignment="TOP_CENTER" layoutX="-1.0" prefHeight="719.0" prefWidth="1399.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <TextFlow maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="54.0" prefWidth="644.0" textAlignment="CENTER">
+                     <children>
+                        <Label alignment="TOP_CENTER" layoutX="130.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="47.0" prefWidth="404.0" style="&#10;" text="Race Management" textAlignment="CENTER" wrapText="false">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </TextFlow>
+               </children>
+            </HBox>
+            <VBox alignment="CENTER_LEFT" layoutX="440.0019182561308" layoutY="55.00023978201635" nodeOrientation="LEFT_TO_RIGHT" prefHeight="666.0" prefWidth="545.0" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="440.0" AnchorPane.rightAnchor="414.0" AnchorPane.topAnchor="55.0">
+               <children>
+                  <TextFlow prefHeight="308.0" prefWidth="545.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="10.0" text="Car Detail:">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                        <TextFlow prefHeight="71.0" prefWidth="547.0">
+                           <children>
+                              <Label layoutX="10.0" layoutY="10.0" text="Brand:">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="carBrand" prefHeight="26.0" prefWidth="453.0" />
+                              <Label layoutX="10.0" layoutY="10.0" text="Model:">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="carModel" prefHeight="26.0" prefWidth="453.0" />
+                              <Label layoutX="82.0" layoutY="10.0" text="Engine Type:">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="carEngine" layoutX="10.0" layoutY="77.0" prefHeight="26.0" prefWidth="391.0" />
+                           </children>
+                        </TextFlow>
+                     </children>
+                  </TextFlow>
+                  <TextFlow layoutX="10.0" layoutY="130.0" prefHeight="141.0" prefWidth="545.0">
+                     <children>
+                        <Label text="Tyre Detail:">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                        <TextFlow prefHeight="71.0" prefWidth="547.0">
+                           <children>
+                              <Label layoutX="10.0" layoutY="10.0" text="Front:">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="frontTyre" />
+                              <Label layoutX="10.0" layoutY="10.0" text="Rear:">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="rearTyre" layoutX="74.0" layoutY="17.0" />
+                           </children>
+                        </TextFlow>
+                     </children>
+                  </TextFlow>
+                  <TextFlow layoutX="10.0" layoutY="343.0" prefHeight="129.0" prefWidth="545.0">
+                     <children>
+                        <Label text="Garage Detail:">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                        <TextFlow prefHeight="71.0" prefWidth="547.0">
+                           <children>
+                              <Label layoutX="10.0" layoutY="10.0" text="Name:">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="garageName" prefHeight="26.0" prefWidth="446.0" />
+                              <Label layoutX="10.0" layoutY="10.0" text="Number:">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="garageNum" layoutX="361.0" layoutY="17.0" />
+                              <Label layoutX="82.0" layoutY="10.0" text="ID:">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="garageId" layoutX="81.0" layoutY="17.0" prefHeight="26.0" prefWidth="236.0" />
+                           </children>
+                        </TextFlow>
+                     </children>
+                  </TextFlow>
+                  <TextFlow layoutX="10.0" layoutY="454.0" prefHeight="426.0" prefWidth="545.0">
+                     <children>
+                        <Label text="Driver Detail:">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Label>
+                        <TextFlow prefHeight="71.0" prefWidth="547.0">
+                           <children>
+                              <Label layoutX="10.0" layoutY="10.0" text="Name">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="driverName" prefHeight="26.0" prefWidth="456.0" />
+                              <Label layoutX="10.0" layoutY="10.0" text="Team">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="driverTeam" layoutX="75.0" layoutY="17.0" prefHeight="26.0" prefWidth="276.0" />
+                              <Label layoutX="82.0" layoutY="10.0" text="ID:">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="driverId" layoutX="319.0" layoutY="17.0" />
+                           </children>
+                        </TextFlow>
+                     </children>
+                  </TextFlow>
+                  <AnchorPane prefHeight="429.0" prefWidth="545.0">
+                     <children>
+                        <Button fx:id="saveButton" alignment="CENTER" contentDisplay="CENTER" layoutX="214.0" layoutY="9.0" mnemonicParsing="false" text="Save" textAlignment="CENTER">
+                           <font>
+                              <Font size="28.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
