@@ -4,4 +4,5 @@ module com.packages {
 
     opens com.packages to javafx.fxml;
     exports com.packages;
+    exports com.packages.mainclasses;
 }

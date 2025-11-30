@@ -8,12 +8,18 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-/**
- * JavaFX App
- */
+import com.packages.mainclasses.SportCar;
+
 public class App extends Application {
 
     private static Scene scene;
+
+    // Singleton instance
+    private static SportCar currentCar;
+
+    public static SportCar getCurrentCar() {
+        return currentCar;
+    }
 
     @Override
     @SuppressWarnings("exports")
@@ -33,6 +39,7 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
+        currentCar = new SportCar();
         launch();
     }
 

@@ -11,7 +11,7 @@ public class mainMenu {
     @FXML
     @SuppressWarnings("unused")
     private void switchToRaceManagementPage() throws IOException {
-        App.setRoot("race_management_page_2");
+        App.setRoot("race_management_page_main");
     }
 
     @FXML

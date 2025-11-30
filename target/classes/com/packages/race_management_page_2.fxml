@@ -32,14 +32,14 @@
             </HBox>
             <VBox alignment="CENTER_LEFT" layoutX="440.0019182561308" layoutY="55.00023978201635" nodeOrientation="LEFT_TO_RIGHT" prefHeight="666.0" prefWidth="545.0" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="440.0" AnchorPane.rightAnchor="414.0" AnchorPane.topAnchor="55.0">
                <children>
-                  <TextFlow prefHeight="308.0" prefWidth="545.0">
+                  <TextFlow prefHeight="154.0" prefWidth="545.0">
                      <children>
                         <Label layoutX="10.0" layoutY="10.0" text="Car Detail:">
                            <font>
                               <Font size="23.0" />
                            </font>
                         </Label>
-                        <TextFlow prefHeight="71.0" prefWidth="547.0">
+                        <TextFlow prefHeight="119.0" prefWidth="548.0">
                            <children>
                               <Label layoutX="10.0" layoutY="10.0" text="Brand:">
                                  <font>
@@ -70,7 +70,7 @@
                               <Font size="23.0" />
                            </font>
                         </Label>
-                        <TextFlow prefHeight="71.0" prefWidth="547.0">
+                        <TextFlow prefHeight="47.0" prefWidth="549.0">
                            <children>
                               <Label layoutX="10.0" layoutY="10.0" text="Front:">
                                  <font>
@@ -95,7 +95,7 @@
                               <Font size="23.0" />
                            </font>
                         </Label>
-                        <TextFlow prefHeight="71.0" prefWidth="547.0">
+                        <TextFlow prefHeight="93.0" prefWidth="548.0">
                            <children>
                               <Label layoutX="10.0" layoutY="10.0" text="Name:">
                                  <font>
