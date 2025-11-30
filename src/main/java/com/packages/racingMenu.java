@@ -17,6 +17,14 @@ public class racingMenu implements Initializable {
     @FXML private TextField brandText;
     @FXML private TextField modelText;
     @FXML private TextField engineText;
+    @FXML private TextField frontText;
+    @FXML private TextField rearText;
+    @FXML private TextField gNameText;
+    @FXML private TextField gLocText;
+    @FXML private TextField gIDText;
+    @FXML private TextField dNameText;
+    @FXML private TextField dTeamText;
+    @FXML private TextField dIDText;
     SportCar car = App.getCurrentCar();
 
     @Override
@@ -24,6 +32,14 @@ public class racingMenu implements Initializable {
         brandText.setText(car.getBrand());
         modelText.setText(car.getModel());
         engineText.setText(car.engineType());
+        frontText.setText(car.Tyre.getFrontWheel());
+        rearText.setText(car.Tyre.getRearWheel());
+        gNameText.setText(car.Garage.getGarageName());
+        gLocText.setText(car.Garage.getGarageLoc());
+        gIDText.setText(String.valueOf(car.Garage.getGarageNum()));
+        dNameText.setText(car.Driver.getDriverName());
+        dTeamText.setText(car.Driver.getDriverTeam());
+        dIDText.setText(String.valueOf(car.Driver.getDriverID()));
     }
 
     @FXML

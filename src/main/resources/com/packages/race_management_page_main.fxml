@@ -53,36 +53,36 @@
                               </TableView>
                               <TextFlow layoutY="88.0" prefHeight="34.0" prefWidth="554.0">
                                  <children>
-                                    <TextField editable="false" prefHeight="30.0" prefWidth="278.5726318359375" />
-                                    <TextField alignment="CENTER" editable="false" prefHeight="30.0" prefWidth="275.0" />
+                                    <TextField fx:id="frontText" editable="false" prefHeight="30.0" prefWidth="278.5726318359375" />
+                                    <TextField fx:id="rearText" alignment="CENTER" editable="false" prefHeight="30.0" prefWidth="275.0" />
                                  </children>
                               </TextFlow>
                               <TableView fx:id="table2" layoutY="122.0" prefHeight="61.0" prefWidth="555.0">
                                  <columns>
                                     <TableColumn fx:id="garageNameColumn" prefWidth="173.57220458984375" text="Garage Name" />
-                                    <TableColumn fx:id="garageNumberColumn" prefWidth="190.00079345703125" text="Garage Number" />
+                                    <TableColumn fx:id="garageNumberColumn" prefWidth="190.00079345703125" text="Garage Location" />
                                     <TableColumn fx:id="garageIdColumn" prefWidth="192.85797119140625" text="Garage ID" />
                                  </columns>
                               </TableView>
                               <TextFlow layoutY="153.0" prefHeight="30.0" prefWidth="554.0">
                                  <children>
-                                    <TextField editable="false" prefHeight="30.0" prefWidth="173.57220458984375" />
-                                    <TextField alignment="CENTER" editable="false" prefHeight="30.0" prefWidth="190.00079345703125" />
-                                    <TextField alignment="CENTER" editable="false" layoutX="184.0" layoutY="10.0" prefHeight="30.0" prefWidth="189.0" />
+                                    <TextField fx:id="gNameText" editable="false" prefHeight="30.0" prefWidth="173.57220458984375" />
+                                    <TextField fx:id="gLocText" alignment="CENTER" editable="false" prefHeight="30.0" prefWidth="190.00079345703125" />
+                                    <TextField fx:id="gIDText" alignment="CENTER" editable="false" layoutX="184.0" layoutY="10.0" prefHeight="30.0" prefWidth="189.0" />
                                  </children>
                               </TextFlow>
                               <TableView fx:id="table21" layoutY="183.0" prefHeight="61.0" prefWidth="555.0">
                                  <columns>
                                     <TableColumn fx:id="driverNameColumn" prefWidth="173.57220458984375" text="Driver Name" />
-                                    <TableColumn fx:id="driverNumColumn" prefWidth="190.00079345703125" text="Driver Number" />
+                                    <TableColumn fx:id="driverNumColumn" prefWidth="190.00079345703125" text="Driver Team" />
                                     <TableColumn fx:id="driverIDColumn" prefWidth="192.85797119140625" text="Driver ID" />
                                  </columns>
                               </TableView>
                               <TextFlow layoutY="211.0" prefHeight="36.0" prefWidth="554.0">
                                  <children>
-                                    <TextField editable="false" prefHeight="30.0" prefWidth="173.57220458984375" />
-                                    <TextField alignment="CENTER" editable="false" prefHeight="30.0" prefWidth="190.00079345703125" />
-                                    <TextField alignment="CENTER" editable="false" layoutX="184.0" layoutY="10.0" prefHeight="30.0" prefWidth="188.0" />
+                                    <TextField fx:id="dNameText" editable="false" prefHeight="30.0" prefWidth="173.57220458984375" />
+                                    <TextField fx:id="dTeamText" alignment="CENTER" editable="false" prefHeight="30.0" prefWidth="190.00079345703125" />
+                                    <TextField fx:id="dIDText" alignment="CENTER" editable="false" layoutX="184.0" layoutY="10.0" prefHeight="30.0" prefWidth="188.0" />
                                  </children>
                               </TextFlow>
                            </children>

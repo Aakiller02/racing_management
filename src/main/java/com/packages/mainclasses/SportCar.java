@@ -10,11 +10,11 @@ public class SportCar implements VehicleOperations{
     private String fuelType;
     private double mileage;
     @SuppressWarnings("unused")
-    Wheels Tyre = new Wheels();
+    public Wheels Tyre = new Wheels();
     @SuppressWarnings("unused")
-    Garage Garage = new Garage();
+    public Garage Garage = new Garage();
     @SuppressWarnings("unused")
-    Driver Driver = new Driver();
+    public Driver Driver = new Driver();
 
     // constructors
     public SportCar() {
